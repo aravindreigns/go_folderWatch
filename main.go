@@ -39,7 +39,12 @@ func main() {
 	if err != nil {
 		log.Fatal(err)
 	}
-	defer watcher.Close()
+	defer func(watcher *fsnotify.Watcher) {
+		err := watcher.Close()
+		if err != nil {
+
+		}
+	}(watcher)
 
 	folderToWatch := viper.GetString("folderToWatch")
 	err = filepath.Walk(folderToWatch, func(path string, info os.FileInfo, err error) error {
