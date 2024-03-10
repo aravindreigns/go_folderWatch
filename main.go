@@ -1,3 +1,5 @@
+//Task - Go Program to keep a watch on a folder. Any new file changes are detected and based on the regular expression fetched from the config file the result is displayed in console.
+
 package main
 
 import (
